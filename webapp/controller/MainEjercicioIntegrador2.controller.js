@@ -78,6 +78,11 @@ sap.ui.define([
                 var oList = this.getView().byId("idListProducts");
                 var oBindingInfo = oList.getBinding("items"); 
                 oBindingInfo.filter(oFilters, "Application"); 
+                
+                let oLength = oList.getItems().length;
+                let oContador = new JSONModel();
+                oContador.setData(oLength);
+                this.getOwnerComponent().setModel(oContador, "ProductosLengthJSON");
             }
         });
     });
