@@ -1,0 +1,79 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:tnt="sap.tnt">
+    <Dialog
+        id="formDialog"
+        title="{i18n>editButton}">
+        <f:Form id="FormDisplay" editable="false">
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="{i18n>formProductID}">
+							<f:fields>
+								<Text text="{ProductoSeleccionadoJSON>/ProductID}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>formProduct}">
+							<f:fields>
+                            <Text text="{ProductoSeleccionadoJSON>/ProductName}"/>
+                        	</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>formSupplierID}">
+							<f:fields>
+                            <Text text="{ProductoSeleccionadoJSON>/SupplierID}"/>
+                            </f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>objectHeaderCategory}">
+							<f:fields>
+                            <Text text="{ProductoSeleccionadoJSON>/CategoryID}"/>
+                            </f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>formQuantityPerUnit}">
+							<f:fields>
+                            <Text text="{ProductoSeleccionadoJSON>/QuantityPerUnit}"/>
+                            </f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>formUnitPrice}">
+							<f:fields>
+                            <Text text="{ProductoSeleccionadoJSON>/UnitPrice}"/>
+                            </f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>formUnitsOrdered}">
+							<f:fields>
+                            <Text text="{ProductoSeleccionadoJSON>/UnitsOnOrder}"/>
+                            </f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>formStockUnits}">
+							<f:fields>
+                            <Text text="{ProductoSeleccionadoJSON>/UnitsInStock}"/>
+                            </f:fields>
+						</f:FormElement>
+						
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+        <HBox alignContent="Center" justifyContent="Center">
+            <Button id="boton" text="{i18n>closeButton}" press="cerrarFragmento"/>
+        </HBox>
+    </Dialog>
+</core:FragmentDefinition>

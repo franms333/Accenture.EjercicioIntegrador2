@@ -1,0 +1,8 @@
+<mvc:View controllerName="EjercicioIntegrador2.EjercicioIntegrador2.controller.App" 
+xmlns:mvc="sap.ui.core.mvc" 
+displayBlock="true" 
+xmlns="sap.m">
+	<SplitApp id="app">
+        
+	</SplitApp>
+</mvc:View>

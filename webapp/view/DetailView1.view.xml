@@ -1,0 +1,136 @@
+<mvc:View controllerName="EjercicioIntegrador2.EjercicioIntegrador2.controller.DetailView1" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns:layout="sap.ui.layout" 
+xmlns:f="sap.ui.layout.form" 
+xmlns:core="sap.ui.core"
+displayBlock="true" 
+xmlns="sap.m">
+	
+    <Page >
+    <content>
+        <!-- TITULO "PRODUCTO" -->
+        <Toolbar >
+            <Title text="{i18n>detailTitle}"></Title>
+        </Toolbar>
+        
+        <!-- OBJECT HEADER PARA LOS DATOS DEL PRODUCTO -->
+        <ObjectHeader
+		title="{ProductoSeleccionadoJSON>/ProductName}"
+		number="{
+			parts:[{path:'ProductoSeleccionadoJSON>/UnitPrice'},{path:'CurrencyCode'}],
+			type: 'sap.ui.model.type.Currency',
+			formatOptions: {showMeasure: true}
+		}"
+		numberUnit="USD"
+		class="sapUiResponsivePadding--header" >
+            <statuses>
+                <ObjectStatus
+                    id="stockStatus"
+                    text="{path: 'ProductoSeleccionadoJSON>/UnitsInStock', formatter: '.formatter.formatStockStatusText'}"
+                    state="{path: 'ProductoSeleccionadoJSON>/UnitsInStock', formatter: '.formatter.formatStockStatusState'}" />
+            </statuses>
+                <ObjectAttribute text="{i18n>objectHeaderCategory}: {ProductoSeleccionadoJSON>/CategoryID}" />
+	    </ObjectHeader>
+
+        <!-- BARRA DE DATOS DEL PRODUCTO Y EL PROVEEDOR-->
+        <IconTabBar
+		id="idIconTabBarNoIcons"
+		expanded="{device>/isNoPhone}"
+		class="sapUiResponsiveContentPadding">
+            <items>
+                <!-- PRODUCTO -->
+                <IconTabFilter text="{i18n>iconTabBarGI}" key="info">
+                    <f:Form>
+                        <f:layout>
+                            <f:ResponsiveGridLayout
+                                labelSpanXL="4"
+                                labelSpanL="4"
+                                labelSpanM="12"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="3"
+                                emptySpanL="3"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="2"
+                                columnsL="2"
+                                columnsM="2"
+                                singleContainerFullSize="false" />
+                        </f:layout>
+                        <f:formContainers>
+                            <f:FormContainer>
+                                <f:formElements>
+                                    <f:FormElement label="{i18n>formProduct}">
+                                        <f:fields>
+                                            <Text text="{ProductoSeleccionadoJSON>/ProductName}"/>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="{i18n>formDescription}">
+                                        <f:fields>
+                                            <Text text="{ProductoSeleccionadoJSON>/QuantityPerUnit}"/>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="{i18n>formProductID}">
+                                        <f:fields>
+                                            <Text id="idProducto" text="{ProductoSeleccionadoJSON>/ProductID}"/>
+                                        </f:fields>
+                                    </f:FormElement>
+                                </f:formElements>
+                            </f:FormContainer>
+                        </f:formContainers>
+                    </f:Form>
+
+                <!-- PROVEEDOR -->
+                </IconTabFilter>
+                <IconTabFilter text="{i18n>iconTabBarSupplier}" key="supplier">
+                    <f:Form>
+                        <f:layout>
+                            <f:ResponsiveGridLayout
+                                labelSpanXL="4"
+                                labelSpanL="4"
+                                labelSpanM="12"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="3"
+                                emptySpanL="3"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="2"
+                                columnsL="2"
+                                columnsM="2"
+                                singleContainerFullSize="false" />
+                        </f:layout>
+                        <f:formContainers>
+                            <f:FormContainer>
+                                <f:formElements>
+                                    <f:FormElement label="{i18n>formSupplier}">
+                                        <f:fields>
+                                            <Text text="{ProveedorJSON>/CompanyName}"/>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="{i18n>formContactName}">
+                                        <f:fields>
+                                            <Text text="{ProveedorJSON>/ContactName}"/>
+                                        </f:fields>
+                                    </f:FormElement>
+                                </f:formElements>
+                            </f:FormContainer>
+                        </f:formContainers>
+                    </f:Form>
+                </IconTabFilter>
+            </items>
+	    </IconTabBar>
+
+        </content>
+
+        <!-- FOOTER CON BOTONES -->
+        <footer>
+		<Toolbar>
+			<ToolbarSpacer/>
+            <Button type="Emphasized" text="{i18n>editButton}" press="abrirDialogo" />
+            <Button text="{i18n>deleteButton}" press="abrirMessage" />
+            <Button text="{i18n>copyButton}" press="abrirMessageToast" />
+		</Toolbar>
+        </footer>
+        </Page>
+</mvc:View>

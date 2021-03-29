@@ -1,0 +1,28 @@
+<mvc:View controllerName="EjercicioIntegrador2.EjercicioIntegrador2.controller.MainEjercicioIntegrador2" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns:layout="sap.ui.layout" 
+xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+displayBlock="true" 
+xmlns="sap.m">
+	
+    <Page
+        id="master"
+        title="{i18n>masterTitle} ({ProductosLengthJSON>/})"
+        backgroundDesign="List"
+        class="sapUiStdPage">
+        <List id="idListProducts" items="{ProductosJSON>/value}">
+            <headerToolbar> 
+                    <OverflowToolbar width="100%"> 
+                        <content>
+                            <SearchField width="90%" placeholder="{i18n>searchPlaceholder}" liveChange="onSearch"> 
+                            </SearchField>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+            <items>
+                <StandardListItem title="{ProductosJSON>ProductName}" info="{path: 'ProductosJSON>UnitPrice', formatter: '.formatter.formatValor'}" description="USD" type="Active" press="onListItemPress"/>
+            </items>
+        </List>
+    </Page>
+			
+</mvc:View>
