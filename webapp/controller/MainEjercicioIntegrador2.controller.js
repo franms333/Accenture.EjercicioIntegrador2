@@ -188,23 +188,25 @@ sap.ui.define([
                         )
                     }
                 }
-                oDialog.destroyFilterItems();
-                oDialog.addFilterItem(new sap.m.ViewSettingsFilterItem({
-                    key: "ProductName",
-                    text: "Nombre",
-                    items: ProductNameFilter
-                }));
+                if(oDialog.getFilterItems().length==1){
+                        oDialog.destroyFilterItems();
+                        oDialog.addFilterItem(new sap.m.ViewSettingsFilterItem({
+                            key: "ProductName",
+                            text: "Nombre",
+                            items: ProductNameFilter
+                        }));
 
-                oDialog.addFilterItem(new sap.m.ViewSettingsFilterItem({
-                    key: "UnitPrice",
-                    text: "Precio",
-                    items: ProductPriceFilter
-                }));
-                oDialog.addFilterItem(new sap.m.ViewSettingsFilterItem({
-                    key: "ProductID",
-                    text: "ID Producto",
-                    items: ProductIDFilter
-                }));
+                        oDialog.addFilterItem(new sap.m.ViewSettingsFilterItem({
+                            key: "UnitPrice",
+                            text: "Precio",
+                            items: ProductPriceFilter
+                        }));
+                        oDialog.addFilterItem(new sap.m.ViewSettingsFilterItem({
+                            key: "ProductID",
+                            text: "ID Producto",
+                            items: ProductIDFilter
+                        }));
+                }
                 
                 return oDialog;
             },
