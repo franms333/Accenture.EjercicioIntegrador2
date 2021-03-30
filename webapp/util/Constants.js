@@ -9,6 +9,9 @@ sap.ui.define([], function() {
                 name: "/name"
             }
         },
+        Services: {
+            link: "/V3/Northwind/Northwind.svc/Products"
+        },
         ids: {
             FRAGMENTS: {
                 FormDialog: "formDialog"
@@ -16,9 +19,12 @@ sap.ui.define([], function() {
         },
         routes: {
             main: "MainEjercicioIntegrador2", 
-            
+            routeMain: "RouteMainEjercicioIntegrador2",
+            routeDetail: "RouteDetailView1",
             FRAGMENTS: { 
-                FormDialog: "EjercicioIntegrador2.EjercicioIntegrador2.fragments.FormDialog"
+                FormDialog: "EjercicioIntegrador2.EjercicioIntegrador2.fragments.FormDialog",
+                SortDialog: "EjercicioIntegrador2.EjercicioIntegrador2.fragments.SortDialog",
+                FilterDialog: "EjercicioIntegrador2.EjercicioIntegrador2.fragments.FilterDialog"
             }
         }
 

@@ -14,8 +14,10 @@ xmlns="sap.m">
             <headerToolbar> 
                     <OverflowToolbar width="100%"> 
                         <content>
-                            <SearchField width="90%" placeholder="{i18n>searchPlaceholder}" liveChange="onSearch"> 
+                            <SearchField width="75%" placeholder="{i18n>searchPlaceholder}" liveChange="onSearch"> 
                             </SearchField>
+                            <Button tooltip="Ordenar" icon="sap-icon://sort" press="onSort"></Button>
+                            <Button tooltip="Agrupar" icon="sap-icon://filter" press="onFilter"></Button>
                         </content>
                     </OverflowToolbar>
                 </headerToolbar>

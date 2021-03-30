@@ -28,15 +28,11 @@ sap.ui.define([
                 if (!this.pDialog) {
                     this.pDialog = Fragment.load({
                         id: oView.getId(),
-
-                        //AQUI SE PUEDE REFERENCIAR EL FRAGMENT EN EL CONSTANT
                         name: Constants.routes.FRAGMENTS.FormDialog,
-
                         controller: this
-                        //CONECTAR EL DIÁLOGO CON LA VISTA PRINCIPAL DEL COMPONENTE ACTUAL
                     }).then(function (oDialog) {
-                        //this.pDialog = oDialog;
-                        oView.addDependent(oDialog); //ES COMO EL APPENDCHILD DE JS
+                        
+                        oView.addDependent(oDialog);
                         return oDialog;
                     });
                 }
@@ -48,7 +44,7 @@ sap.ui.define([
             },
             cerrarFragmento: function () {
                 this.byId(Constants.ids.FRAGMENTS.FormDialog).close();
-                //this.byId("TableFragment").close();
+                
             },
             abrirMessage: function(){
                 MessageBox.confirm("¿Desea borrar los datos?");

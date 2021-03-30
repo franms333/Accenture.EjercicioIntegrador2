@@ -2,7 +2,7 @@
  * Services file
  *
  */
-sap.ui.define([],
+sap.ui.define(["EjercicioIntegrador2/EjercicioIntegrador2/util/Constants"],
 
     function (Constants) {
         "use strict";
@@ -61,7 +61,7 @@ sap.ui.define([],
                     endPoint: "Northwind",
                     method: "GET",
                     // @ts-ignore
-                    entity: "/V3/Northwind/Northwind.svc/Products" //La entidad apunta al servicio que se desea consumir
+                    entity: Constants.Services.link //La entidad apunta al servicio que se desea consumir
                 });
                 return this.promisizer(oRequest);
             },
@@ -74,16 +74,7 @@ sap.ui.define([],
                 });
                 return this.promisizer(oRequest);
             },
-            getProductoSeleccionado: async function (orderId, productId) {
-                const oRequest = this.getRequest({
-                    endPoint: "Northwind",
-                    method: "GET",
-                    // @ts-ignore
-                    entity: "V3/Northwind/Northwind.svc/Order_Details" + "(OrderID=" + orderId + "," +
-                        "ProductID=" + productId + ")" //La entidad apunta al servicio que se desea consumir
-                });
-                return this.promisizer(oRequest);
-            },
+            
             /*
              * Wrapper function, creates an jQuery deferred object for AJAX
              * @param {object} oOptions Request options
